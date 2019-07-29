@@ -139,7 +139,7 @@ Parsing General
 
 렌더링 엔진 처리과정
 ---
-![webkit_rendering] (https://cphinf.pstatic.net/mooc/20171231_32/1514692895834EoHUo_PNG/webkitflow.png)
+<img width="300" src="https://cphinf.pstatic.net/mooc/20171231_32/1514692895834EoHUo_PNG/webkitflow.png">
 
 1. HTML을 해석하여 DOM Tree를 만든다.
 2. CSS를 해석해서 CSS Tree(CSS Object Model)을 만든다.
