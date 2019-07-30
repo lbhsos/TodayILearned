@@ -1,6 +1,14 @@
 JSP 서블릿(Servlet)이란?
 ======
 
+자바 웹 어플리케이션의 폴더 구조
+------
+<img width=500 src="https://cphinf.pstatic.net/mooc/20180124_133/15167752967943AqfC_PNG/1_5_1_____.PNG">
+
+서블릿은 WAS에 동작하는 JAVA 클래스
+서블릿은 HttpServlet클래스를 상속받아야 함
+예를 들어, 웹 페이지 구성 화면은 JSP로 표현하고, 복잡한 프로그래밍은 서블릿으로 구현한다.
+
 서블릿을 한줄러 정의한다면?
 ----
 웹 프로그래밍에서 클라이언트의 요청을 처리하고 그 결과를 다시 클라이언트에게 전송하는 Servlet 클래스의 구현 규칙을 지킨 자바 프로그래밍 기술
@@ -61,7 +69,7 @@ Servlet 생명주기
 
 1. 클라이언트 요청 -> 서블릿 메모리 확인 -> init() 메소드 호출하여 적재 -> 실행 중 서블릿이 변경될 경우, 기존 서블릿을 파괴하고 init() 을 통해 새로운 내용을 다시 메모리에 적재
 2. init() 호출 -> service() 메소드를 통해 요청에 대한 응답이 doGet() || doPost()로 분기
-3. 서블릿 컨테이너는 HttpServletRequest, HttpServletResponse에 의해 request와 response 객체 제공
+3. 서블릿 컨테이너는 HttpServletRequest, HttpServletResponse에 의해 request와 response 객체 제공 // Response 는 응답을 해 주는 것, Request는 요청
 4. 컨테이너가 서블릿에 종료 요청하면 destroy() 호출 -> 종료시에 처리해야하는 작업들은 destry() 메소드를 오버라이딩하여 구현
 
 
@@ -97,3 +105,55 @@ GET www.2stephyun.com/login?id=2step&pw=2step 와 같은 페이지가 있다고 
 5. 캐싱할 수 없다.
 
 메세지 길이 제한은 없지만 최대 요청을 받는 시간인 Time Out이 존재하므로 클라이언트에서 페이지를 요청하고 기다리는 시간이 존재한다. 실제로 상황에서 POST 방식은 URL에 데이터가 노출되지 않으므로 즐겨찾기나 캐싱이 불가능하지만 쿼리스트링 데이터 뿐 아니라, 라디오 버튼, 텍스트 박스와 같은 객체들의 값도 전송이 가능하다.
+
+
+버전에 따른 Servlet작성 방법
+-------
+1. Servlet 3.0 spec 이상에서 사용하는 방법
+* web.xml 파일 사용하지 않음
+* 자바 어노테이션(annotation) 사용
+* 앞에서 실습했던 first web에서 사용
+
+2. Servlet 3.0 spec 미만에서 사용하는 방법
+* servlet을 등록할 때 web.xml 파일에 등록
+
+
+
+Servlet 3.0 spec 미만시
+------
+<pre><code>
+'''
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://java.sun.com/xml/ns/javaee" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+version="2.5">
+    <display-name>exam25</display-name>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
+    <servlet>
+        <description></description>
+        <display-name>TenServlet</display-name>
+        <servlet-name>TenServlet</servlet-name>
+        <servlet-class>exam.TenServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TenServlet</servlet-name>
+        <url-pattern>/ttt</url-pattern>
+    </servlet-mapping>
+</web-app>
+'''
+</code></pre>
+
+의미 정리: 
+1. servlet-mapping의 url-pattern 이 /ttt라고 요청이 들어오면, 맵핑에서 찾아내고, 존재하지 않으면 404를 제출
+2. servlet-name을 확인하고 servlet 태그 안에서 servlet-name(같은 이름)을 확인한다. -> 짝꿍
+3. exam 패키지에서 TenServlet 서블릿을 실행시키는 것
+4. 3.0 이상에서는 어노테이션이 대신 해주는 것!
