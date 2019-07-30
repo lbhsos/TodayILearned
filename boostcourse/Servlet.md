@@ -121,7 +121,7 @@ GET www.2stephyun.com/login?id=2step&pw=2step 와 같은 페이지가 있다고 
 
 Servlet 3.0 spec 미만시
 ------
-<pre><code>
+
 ```html
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml version="1.0" encoding="UTF-8"?>
@@ -150,7 +150,7 @@ version="2.5">
     </servlet-mapping>
 </web-app>
 ```
-</code></pre>
+
 
 의미 정리: 
 1. servlet-mapping의 url-pattern 이 /ttt라고 요청이 들어오면, 맵핑에서 찾아내고, 존재하지 않으면 404를 제출
