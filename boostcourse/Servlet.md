@@ -122,7 +122,7 @@ GET www.2stephyun.com/login?id=2step&pw=2step 와 같은 페이지가 있다고 
 Servlet 3.0 spec 미만시
 ------
 <pre><code>
-'''
+```html
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
@@ -149,7 +149,7 @@ version="2.5">
         <url-pattern>/ttt</url-pattern>
     </servlet-mapping>
 </web-app>
-'''
+```
 </code></pre>
 
 의미 정리: 
