@@ -99,11 +99,10 @@ JSTL이 제공하는 태그의 종류
 <h3>변수 설정: 지정한 영역에 변수를 생성한다.</h3>
 [문법]
 
-'''
-<c:set var="varName" scope="session" value="someValue" />
-<c:set var="varName" scope="request" some Value>
-</c:set>
-'''
+<c:set var="varName" scope="session" value="someValue" />  
+<c:set var="varName" scope="request" some Value>  
+</c:set>  
+
 
 
 * var: EL에서 사용될 변수명
