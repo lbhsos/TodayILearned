@@ -123,3 +123,5 @@ DispatcherServlet
 - 뷰의 종류에 따라 적절한 뷰 리졸버를 추가로 설정해줄 수 있다.
 
 <img width=500 height=300 src="https://cphinf.pstatic.net/mooc/20180219_66/1519004113425TanBR_PNG/7.png">
+
+

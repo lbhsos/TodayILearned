@@ -11,7 +11,7 @@ Spring Framework란?
 * AOP 지원
 * 스프링은 도메인 논리 코드와 쉽게 분리될 수 있는 구조
 
-프레임 워크 모듀
+프레임 워크 모듈
 ------
 - 스프링 프레임워크는 약 **20개의 모듈**로 구성되어 있음
 - 필요한 모듈만 가져다 사용 가능
@@ -92,8 +92,8 @@ Java Config를 이용한 설정을 위한 어노테이션
 
 DTO
 -----
-- DTO란 Data Transfer Object의 약자입니다.
-- 계층간 데이터 교환을 위한 자바빈즈입니다.
+- DTO란 *Data Transfer Object*의 약자입니다.
+- 계층간 *데이터 교환을 위한 자바빈즈*입니다.
 - 계층이란 컨트롤러 뷰, 비지니스 계층, 퍼시스턴스 계층을 의미합니다.
 - 일반적으로 DTO는 로직을 가지고 있지 않고, 순수한 데이터 객체입니다.
 - 필드와 getter, setter를 가진다. 추가적으로 toString(), equals(), hashCode()등의 Object 메소드를 오버라이딩 할 수 있습니다.
@@ -108,17 +108,17 @@ ConnectionPool
 
 DataSource
 ----- 
-- DataSource는 커넥션 풀을 관리하는 목적으로 사용되는 객체입니다.  
-- DataSource를 이용해 커넥션을 얻어오고 반납하는 등의 작업을 수행합니다.
+- DataSource는 **커넥션 풀을 관리하는 목적으로 사용되는 객체**입니다.  
+- DataSource를 이용해 **커넥션을 얻어오고 반납하는 등의 작업**을 수행합니다.
 
 
 JdbcTemplate외의 접근방법
 -----
-- NamedParameterJdbcTemplate:
+- **NamedParameterJdbcTemplate**:
 JdbcTemplate에서 JDBC statement 인자를 ?를 사용하는 대신 파라미터명을 사용하여 작성하는 것을 지원
 
-- SimpleJdbcTemplate:
-JdbcTemplate과 NamedParameterJdbcTemplate 합쳐 놓은 템플릿 클래스
+- **SimpleJdbcTemplate**:
+JdbcTemplate과 NamedParameterJdbcTemplate 합쳐 놓은 템플릿 클래스  
 이제 JdbcTemplate과 NamedParameterJdbcTemplate에 모든 기능을 제공하기 때문에 삭제 예정될 예정(deprecated)
 
 - SimpleJdbcInsert:
@@ -127,3 +127,75 @@ JdbcTemplate과 NamedParameterJdbcTemplate 합쳐 놓은 템플릿 클래스
 실습
 ----
 BeanPropertyRowmapper: java변수명과 jdbc변수명을 일치시켜줌.
+
+
+요약 정리
+=======
+Spring 장점 정리
+-------
+1. 경량 Container
+  
+2. DI(Dependency Injection)지원
+> 프로그래밍 간에 의존성이 강하면, 유지 보수 시 다소 어려움을 겪을 수 있으나 별도의 제 3자가 만들어주는 의존객체를 각 클래스에 뿌려주는 기능으로 변경하여 유연성을 제공해주는 것
+<img width=600 height=300 src="https://t1.daumcdn.net/cfile/tistory/243EC24B593A3B072E?download">
+  
+3. AOP(Aspect Oriented Programming, 관점지향 프로그래밍) 지원
+> 한 어플리케이션 내 다양한 모듈에서 공통적으로 이용되는 기능을 분리시켜 사용하는 것. Spring 을 쓰는 이유 중 가장 큰 이유
+
+4. POJO(Plain Old Java Object) 지원
+> Java의 객체지향적인 특징을 살려 비즈니스 로직에 충실한 개발이 가능하도록 하는 것
+
+- POJO를 사용하는 이유?
+* 코드에 간결함
+* 자동화 테스트에 유리
+
+- POJO를 정리하면?
+* 특정 규약에 종속되지 않음
+* 특정 환경에 종속되지 않음
+* 객체지향 원리에 충실
+
+- EJB(Enterprise JavaBean)을 알기 위해서는?
+* EJB가 무엇인지 알기 위해서는 먼저 JAVA EE(Java Platform Enterprise Edition)에 대해 알아야 한다. Java EE는 간편하고 견고하고 확장 가능하며 안전한 서버측 자바 애플리케이션을 위한 산업 표준이다. JAVA EE에는 우리가 잘 알고 있는 웹 애플리케이션 개발을 위한 **Servlet,JSP** 외에도 다양한 기능을 포함하고있다. 그 중에 하나가 **EJB**이다.
+
+- EJB의 기능은?
+* 분산 애플리케이션을 지원하는 컴포넌트 기반 객체
+* Servlet이 Tomcat 같은 Servlet Container에 올려 서비스 되는 것처럼, EJB는 JBoss 같은 EJB Container에 올려서 서비스가 된다
+
+JAVA BEAN
+------
+- 빈이란 반복적으로 코드를 따로 작성하여 재사용하기 위해 만들어진 클래스이다. 빈은 속성과 메서드로 이루어져 있으며, 데이터의 처리를 담당한다.
+(Java - VO(DTO), JSP - JavaBean)
+
+- 자바빈 이용의 목적
+> 현재 프로그래밍에서 *모듈화(component 화)*의 중요성이 강조되는 만큼, JSP 페이지가 화면 표출 부분과 로직들이 혼재함으로 인한 복잡한 구성을 가급적 피하고, JSP 페이지의 로직 부분을 분리해서 코드를 재사용함으로써 프로그램의 효율을 높이는 것이 자바빈의 이용 목적이다. 
+
+Spring Bean
+-------
+- 일반적으로 XML 파일에 정의
+- 주요속성
+* class(필수): 정규화된 자바 클래스 이름
+* id: bean의 고유 식별자
+* scope: 객체의 범위(sigleton, prototype)
+* constructor-arg: 생성 시 생성자에 전달할 인수
+* property: 생성 시 bean setter에 전달할 인수
+* init method와 destroy method
+
+<pre><code>
+<!-- A simple bean definition -->
+<bean id="..." class="..."></bean>
+
+<!-- A bean definition with scope-->
+<bean id="..." class="..." scope="singleton"></bean>
+
+<!-- A bean definition with property -->
+<bean id="..." class="...">
+	<property name="message" value="Hello World!"/>
+</bean>
+
+<!-- A bean definition with initialization method -->
+<bean id="..." class="..." init-method="..."></bean>
+</code></pre>
+
+Spring Bean Scope
+------
+- 스프링은 기본적으로 모든 bean을 singleton으로 생성하여 관리한다.
