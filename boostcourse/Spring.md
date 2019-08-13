@@ -180,7 +180,7 @@ Spring Bean
 * property: 생성 시 bean setter에 전달할 인수
 * init method와 destroy method
 
-<pre><code>
+
 <!-- A simple bean definition -->
 <bean id="..." class="..."></bean>
 
@@ -194,7 +194,7 @@ Spring Bean
 
 <!-- A bean definition with initialization method -->
 <bean id="..." class="..." init-method="..."></bean>
-</code></pre>
+
 
 Spring Bean Scope
 ------
