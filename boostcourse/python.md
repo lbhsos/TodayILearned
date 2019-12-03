@@ -129,3 +129,26 @@ datetime 모듈 알아보기
 - datetime.timedelta(hours=5, minutes =30)
 
 시간, 분을 이용하고자 하는데 strftime을 사용하면 앞의 연, 월, 일은 default값으로 구성하게 된다. 따라서, 시간만 이용하거나 날짜만 이용할 때는 datetime.time 또는 datetime.date 를 이용한다. 이후 문자열에서 datetime 객체가 되면, **strftime**을 이용하여 formatting을 사용하면 된다.
+
+
+python input 
+-------
+갯수를 알 수 없는 input 이 필요하다면, 다음과 같이 표현할 수 있다.
+<pre><code>
+import sys
+for line in sys.stdin:
+        print(line)
+</code></pre>
+
+만약, 파일이름을 커맨드라인 argument로 받아서 파일을 읽을 때는 fileinput 모듈이 좋다. 파일이름이 주어지면 파일을 읽어주고 아무것도 안주어지면 stdin에서 읽는다.
+<pre><code>
+import fileinput
+for line in fileinput.input()
+        pass
+</code></pre>
+
+> 종료시에는 sys.exit() 사용
+
+split()
+------
+sep와 maxsplit은 기본값으로 각각 공백과 1이 저장되어있다. sep에는 기준, maxsplit은 문자열을 몇 번 쪼갤것인지 입력한다.
