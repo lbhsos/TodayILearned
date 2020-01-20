@@ -13,9 +13,10 @@
 - 권한 제어용, DB 사용자의권한 정의에 사용됨. 주로 DBA 사용. : GRANT, REVOKE
 
 # ANSI SQL ?
-: The American National Standards Institute Structured Query Language
+: The American National Standards Institute Structured Query Language  
+
 |오라클 SQL|ANSI SQL|
-|:---|:---|
+|---|---|
 |select * <br/> from 영업매출 a, 사원 b, 직무코드 c <br/> where a.판매사원ID=b.사원ID and b.직무ID = c.직무ID(+)|select  * <br/>from  영업매출  <br/>**a inner join** 사원 b<br/>on a.판매사원ID = b. 사원ID<br/>**left outer join** 직무코드 c<br/>on b.직무ID = c.직무ID<br/>where 1 = 1|
 
 # 산술식 및 연결 연산자
@@ -57,7 +58,7 @@ FROM 사원;
 - NVL(성과급율, 0)
 - NVL(직무ID, 'No Job Yet')
 
-# Case, Decode 조건문활용
+# CASE, DECODE 조건문활용
 - SQL 문 안에 IF - THEN - ELSE 논리 사용
 ```
 SELECT 사원명, 직무ID,
